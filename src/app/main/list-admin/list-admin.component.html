@@ -1,0 +1,55 @@
+<!-- <div class="list-admin-container">
+  <div class="title">
+    <h1>List Admin</h1>
+    <button mat-raised-button color="primary" (click)="openAddAdminDialog()">Tambah Admin</button>
+  </div>
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="adminId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.adminId}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="adminName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nama </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.adminName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="adminEmail">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.adminEmail}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="adminCode">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Admin Code </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.adminCode}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="adminRole">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.adminRoleDto.adminRoleName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="createdAt">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.createdAt | date:'dd-MM-yyyy HH:mm:ss'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="openEditAdminDialog(row)">
+            <i class="fas fa-pen-to-square" style="color: yellow; font-weight: bold;"></i>
+          </button>
+          <button mat-icon-button (click)="deleteAdmin(row)">
+            <i class="fas fa-trash-alt" style="color: red; font-weight: bold;"></i>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+  </div>
+</div> -->

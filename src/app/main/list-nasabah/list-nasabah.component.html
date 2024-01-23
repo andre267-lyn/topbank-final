@@ -1,0 +1,72 @@
+<div class="list-nasabah-J9A">
+  <div class="background-asN">
+    <div class="title-Fic">
+      <p class="text-Xg8">List Nasabah</p>
+    </div>
+    <div class="chevron-breadcrumbs-CGU" style="display: flex; align-items: center;">
+      <p class="dashboard-7eL" style="color: #1A96F0; margin: 0;">Dashboard</p>
+      <mat-icon style="margin: 0 8px;">arrow_right</mat-icon>
+      <p class="list-nasabah-ofa" style="color: #667085; font-weight: normal; margin: 0;">List Nasabah</p>
+      <span style="margin-left: auto;"></span>
+      <button mat-raised-button (click)="exportDataToCSV()" style="margin-left: 8px; background-color: #d8f1ff; color: #1A96F0; box-shadow: 0 2px 4px rgba(63, 81, 181, 0.5);">
+        <mat-icon>save_alt</mat-icon> Export to CSV
+      </button>      
+    </div>    
+
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="customerId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nomor </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.customerId}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+         <mat-header-cell *matHeaderCellDef mat-sort-header> Nama </mat-header-cell>
+         <mat-cell *matCellDef="let row"> {{row.customerName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="accountNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nomor Rekening </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.customerAccount}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.customerEmail}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="phoneNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nomor Telephone </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.customerPhone}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="debitCardType">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Jenis Kartu Debit </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.debitCardType}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="motherMaidenName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nama Gadis Ibu Kandung </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="mat-column-motherMaidenName"> {{row.customerMotherName}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="accountCreationTime">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.createdAt | date:'dd-MM-yyyy HH:mm:ss'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editUser(row)">
+              <i class="fas fa-pen-to-square" style="color: yellow; font-weight: bold;"></i>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+  </div>
+</div>

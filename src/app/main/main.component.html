@@ -1,0 +1,67 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="center-toolbar">
+      <span class="toolbar-content" style="color: #1A96F0;">Topbank</span>
+    </mat-toolbar>    
+    <mat-nav-list>
+      <a mat-list-item routerLink="./dashboard" style="color: #969BA0; display: flex; align-items: center; text-decoration: none;">
+        <i class="fab fa-microsoft fa-lg" style="margin-right: 16px; vertical-align: middle; color:#969BA0;"></i>
+        <span style="margin: 0; display: inline-block; vertical-align: middle; color: #969BA0;">Dashboard</span>
+      </a>      
+      <a mat-list-item routerLink="./list-nasabah" style="color: #969BA0; display: flex; align-items: center; text-decoration: none;">
+        <i class="fas fa-user-friends fa-lg" style="margin-right: 10px; vertical-align: middle; color:#969BA0;"></i>
+        <span style="margin: 0; display: inline-block; vertical-align: middle; color: #969BA0;">List Nasabah</span>
+      </a>
+      <a mat-list-item routerLink="./list-admin" style="color: #969BA0; display: flex; align-items: center; text-decoration: none;">
+        <i class="fas fa-user-cog fa-lg" style="margin-right: 10px; vertical-align: middle; color:#969BA0;"></i>
+        <span style="margin: 0; display: inline-block; vertical-align: middle; color: #969BA0;">List Admin</span>
+      </a>
+    </mat-nav-list>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="image_belajar">
+      <img src="./assets/banner.png" alt="Banner">
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span style="color: #1A96F0;"></span>
+      
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon" style="color: #969BA0">menu</mat-icon>
+      </button>
+
+      <div class="spacer"></div>
+      <div style="display: flex; align-items: center; margin-left: auto; margin-right: 16px;">
+        <img src="./assets/placeholder.png" alt="Bambang" style="width: 60px; height: 60px; margin-right: 8px;">
+        <div>
+          <div style="font-weight: bold; color: black; margin-bottom: -2px;">Bambang</div>
+          <div style="font-size: 12px; color: #969BA0;">Super Admin</div>
+        </div>
+      </div>
+      
+
+      <div class="profile-dropdown" *ngIf="!(isHandset$ | async)">
+        <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+          <mat-icon style="color: black;">arrow_drop_up</mat-icon>
+        </button>
+        <mat-menu #profileMenu="matMenu">
+          <button mat-menu-item (click)="navigateToProfile()">Profil</button>
+          <button mat-menu-item (click)="logout()">Keluar</button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
